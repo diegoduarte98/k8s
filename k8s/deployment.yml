@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+        - name: goserver
+          image: diegoduarte98/avancadev-dev-k8sgo:latest
+          ports:
+            - containerPort: 3000
